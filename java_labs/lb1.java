@@ -1,26 +1,25 @@
 import java.util.Scanner;
 
 public class lb1 {
-    public static void main(String[] args) {
-
+    public void start() {
         Scanner scanner = new Scanner(System.in);
 
         // 1)
-        System.out.print("Введіть довжини катетів a і b: ");
+        System.out.print("введіть довжини катетів a і b: ");
         double a = scanner.nextDouble();
         double b = scanner.nextDouble();
         double c = Math.sqrt(a * a + b * b);
         double perimeter = a + b + c;
         double area = (a * b) / 2;
-        System.out.println("Периметр: " + perimeter);
-        System.out.println("Площа: " + area);
+        System.out.println("периметр: " + perimeter);
+        System.out.println("площа: " + area);
 
         // 2)
-        System.out.print("Введіть три числа a, b, c: ");
+        System.out.print("введіть три числа a, b, c: ");
         double x = scanner.nextDouble();
         double y = scanner.nextDouble();
         double z = scanner.nextDouble();
-        System.out.print("Числа, які не належать [0,2]: ");
+        System.out.print("числа, які не належать [0,2]: ");
         if (x < 0 || x > 2) System.out.print(x + " ");
         if (y < 0 || y > 2) System.out.print(y + " ");
         if (z < 0 || z > 2) System.out.print(z + " ");
@@ -28,7 +27,7 @@ public class lb1 {
 
         // 4)
         double[] arr = new double[16];
-        System.out.println("Введіть 16 чисел:");
+        System.out.println("введіть 16 чисел:");
         for (int i = 0; i < 16; i++) {
             arr[i] = scanner.nextDouble();
         }
@@ -39,13 +38,13 @@ public class lb1 {
                 maxSum = sum;
             }
         }
-        System.out.println("Максимальна сума: " + maxSum);
+        System.out.println("max: " + maxSum);
 
         // 3)
-        System.out.print("Enter z (0 < z < 1): ");
+        System.out.print("enter z (0 < z < 1): ");
         double z1 = scanner.nextDouble();
 
-        System.out.print("Enter ε (0 < ε < 1): ");
+        System.out.print("enter ε (0 < ε < 1): ");
         double epsilon = scanner.nextDouble();
 
         double sum = 0.0;
@@ -64,9 +63,11 @@ public class lb1 {
             k++;
         } while (Math.abs(term) >= epsilon);
 
-        System.out.println("Approximated sum: " + sum);
+        System.out.println("approx sum: " + sum);
 
         // 5)
+        System.out.println("----------------");
+        System.out.println("Last one:");
         System.out.println(" x  |  f(x)");
         System.out.println("----------------");
 
@@ -74,10 +75,7 @@ public class lb1 {
             double result = computeFunction(xValue);
             System.out.printf("%.1f | %.6f%n", xValue, result);
         }
-
-        scanner.close();
     }
-
 
     public static double computeFunction(double x) {
         return 1 - (Math.pow(x, 2) / 2) + (Math.pow(x, 4) / 24) - (Math.pow(x, 6) / 720);
